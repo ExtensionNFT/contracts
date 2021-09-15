@@ -1,0 +1,18 @@
+{
+    "tabWidth": 2,
+    "printWidth": 80,
+    "bracketSpacing": false,
+    "explicitTypes": "preserve",
+    "overrides": [
+        {
+            "files": "*.sol",
+            "options": {
+                "printWidth": 200,
+                "tabWidth": 4,
+                "useTabs": false,
+                "singleQuote": false,
+                "explicitTypes": "always"
+            }
+        }
+    ]
+}
