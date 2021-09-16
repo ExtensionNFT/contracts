@@ -1,6 +1,7 @@
 //SPDX-License-Identifier: MIT
 
 //Contract is not audited, use at your own risk
+//https://github.com/ExtensionNFT/contracts
 
 pragma solidity ^0.8.0;
 

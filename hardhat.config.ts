@@ -44,7 +44,7 @@ module.exports = {
     },
     mainnet: {
       url: process.env.MAINNET_URL || "",
-      gasPrice: 110e9,
+      gasPrice: 67e9,
       accounts: {
         mnemonic: process.env.MAINNET_DEPLOYER || "",
       },

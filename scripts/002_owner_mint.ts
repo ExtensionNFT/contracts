@@ -8,7 +8,7 @@ const main = async () => {
     const [deployer, owner] = await ethers.getSigners();
 
     const extensionsContract = Extension__factory.connect(process.env.EXTENSIONNFT_ADDRESS!, deployer);
-    const result = await extensionsContract.ownerMint(1, deployer.address);
+    const result = await extensionsContract.ownerMint(1, deployer.address, {nonce:5});
     await result.wait();
 
     const ownedby = await extensionsContract.ownerOf(1);

@@ -42,3 +42,9 @@ See the default renderer for an example `/contracts/extensions/DefaultRenderExte
   - Same as index finding dance as replace above, but call `removeExtension()` passing `index` and `existingExtensionAddress`, with the .2 ETH modification fee.
 
 ## We have left the contract upgradeable for the time being while we figure out how to share in the collected fee's
+
+## Addresses
+
+- Extension NFT: `0x66aC6646cd082C8B50356a8bB917E58650008483`
+- ScriptChecker: `0x449b4980E59E93075484E1C7729987d846FBADD7`
+- Default Render Extension: `0xBccb126E9E49e321e37AcA065839fE0C659c2880`
