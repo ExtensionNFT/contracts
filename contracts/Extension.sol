@@ -285,20 +285,31 @@ contract Extension is Initializable, ERC721EnumerableUpgradeable, OwnableUpgrade
 
         for (uint256 i = 0; i < extensions.length; i++) {
             if (extensions[i] != address(0)) {
-                try IRenderExtension(extensions[i]).generate(tokenId, tokenGeneration[tokenId]) returns (IRenderExtension.GenerateResult memory result) {
-                    bool isValid = ISvgValidator(validatorAddress).isValid(result.svgPart);
+                IRenderExtension.GenerateResult memory result = IRenderExtension(extensions[i]).generate(tokenId, tokenGeneration[tokenId]);
+                bool isValid = ISvgValidator(validatorAddress).isValid(result.svgPart);
 
-                    if (isValid == false) {
-                        parts[i + 1] = result.svgPart;
-                        attrs[i + 5] = result.attributes;
-                    } else {
-                        parts[i + 1] = "";
-                        attrs[i + 5] = "";
-                    }
-                } catch {
+                if (isValid == false) {
+                    parts[i + 1] = result.svgPart;
+                    attrs[i + 5] = result.attributes;
+                } else {
                     parts[i + 1] = "";
                     attrs[i + 5] = "";
                 }
+
+                // try IRenderExtension(extensions[i]).generate(tokenId, tokenGeneration[tokenId]) returns (IRenderExtension.GenerateResult memory result) {
+                //     bool isValid = ISvgValidator(validatorAddress).isValid(result.svgPart);
+
+                //     if (isValid == false) {
+                //         parts[i + 1] = result.svgPart;
+                //         attrs[i + 5] = result.attributes;
+                //     } else {
+                //         parts[i + 1] = "";
+                //         attrs[i + 5] = "";
+                //     }
+                // } catch {
+                //     parts[i + 1] = "";
+                //     attrs[i + 5] = "";
+                // }
             } else {
                 parts[i + 1] = "";
                 attrs[i + 5] = "";
